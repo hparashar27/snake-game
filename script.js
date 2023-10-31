@@ -9,6 +9,7 @@ const snakeColor = "lightgreen";
 const snakeBorder = "black";
 const foodcolor = "red";
 const unitSize = 25;
+
 let running = false;
 let xVelocity = unitSize;
 let yVelocity = 0;
@@ -119,27 +120,28 @@ function changeDirection(event) {
 }
 }
 function checkGameOver() {
-    switch(true){
-        case(snake[0].x < 0):
-            running = false;
-            break;
-        case(snake[0].x > gameWidth):
-            running = false;
-            break;
-        case(snake[0].y < 0):
-            running = false;
-            break;
-        case(snake[0].y > gameHeight):
-            running = false;
-            break;
+    
+    if (snake[0].x < 0) {
+        snake[0].x = gameWidth - unitSize;
+    } else if (snake[0].x >= gameWidth) {
+        snake[0].x = 0;
     }
-    for(let i = 1; i< snake.length; i+=1){
-        if(snake[i].x == snake[0].x && snake[i].y == snake[0].y){
+
+    if (snake[0].y < 0) {
+        snake[0].y = gameHeight - unitSize;
+    } else if (snake[0].y >= gameHeight) {
+        snake[0].y = 0;
+    }
+
+    // Check for self-collision
+    for (let i = 1; i < snake.length; i += 1) {
+        if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) {
             running = false;
             break;
         }
     }
 }
+
 function displayGameOver() {
     ctx.font ="50px MV Boli";
     ctx.fillStyle = "black";
