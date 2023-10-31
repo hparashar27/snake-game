@@ -3,16 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style2.css" />
     <link rel="icon" type="image/x-icon" href="assests/logo.jpg" />
     <title>Snake Game</title>
   </head>
-  <body>
-    <div id="gameContainer">
-        <canvas id="gameBoard" width="500" height="500"></canvas>
-        <div id="scoreText">0</div>
-        <button id="resetBtn">Reset</button>
+  <body >
+    <div class="outer-div">
+      <div>
+        <h1 class="h1_style">Welcome to The Snake Game</h1>
+        <p class="p_style">Made by Team Closures</p>
+        <p class="p_style">Enter your name</p>
+        <div class="div_center">
+            <input type="text" placeholder="Name">
+        </div>
+     
+       <div class="div_center">
+        <button
+        onclick="location.href='game.html';"
+      >
+        Start Game
+      </button>
+       </div>
+      </div>
     </div>
-    <script src="script.js"></script>
   </body>
 </html>
